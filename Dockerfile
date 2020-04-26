@@ -9,6 +9,10 @@ WORKDIR /opt
 # Build tools
 RUN apt update && \
     apt install -y \
+        software-properties-common && \
+    add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main" && \
+    apt update && \
+    apt isntall -y \
         sudo \
         tzdata \
         git \
@@ -17,6 +21,10 @@ RUN apt update && \
         wget \
         unzip \
         build-essential \
+        libatlas-base-dev \
+        gfortran \
+        libjasper1 \
+        libjasper-dev \
 
 # Media I/O:
         zlib1g-dev \
@@ -58,7 +66,9 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python && \
-    pip install --no-cache numpy==1.9.3
+    curl -kL https://bootstrap.pypa.io/get-pip.py | python3 && \
+    pip install --no-cache numpy==1.9.3 matploglib && \
+    pip3 install --no-cache numpy==1.9.3 matploglib
 
 
 # Build OpenCV
