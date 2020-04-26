@@ -99,3 +99,5 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
       .. && \
     make all -j$(nproc) && \
     make install
+
+WORKDIR /root
