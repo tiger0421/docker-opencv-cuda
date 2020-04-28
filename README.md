@@ -1,5 +1,6 @@
 # docker-opencv-cuda
-This container is built for Compute Capability=7.5
+This container is built for Compute Capability=7.5  
+check your GPU [here](https://developer.nvidia.com/cuda-gpus#compute)
 
 # Suport
 - melodic
